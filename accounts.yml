@@ -1,0 +1,42 @@
+##Deploy
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: accounts-api
+  labels:
+    app: accounts-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: accounts-api
+  template:
+    metadata:
+      labels:
+        app: accounts-api
+    spec:
+      containers:
+        - name: accounts-api
+          image: acrvmam03.azurecr.io/accounts-api
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+      imagePullSecrets:
+        - name: regcred
+---
+##Service
+kind: Service
+apiVersion: v1
+metadata:
+  name: accounts-api
+spec:
+  selector:
+    app: accounts-api
+  ports:
+    - port: 8844
+      targetPort: 8844
+  type: LoadBalancer
