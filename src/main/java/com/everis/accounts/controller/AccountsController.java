@@ -1,8 +1,8 @@
 package com.everis.accounts.controller;
 
 
-import com.everis.accounts.dao.Account;
-import com.everis.accounts.dao.AccountResponse;
+import com.everis.accounts.dto.Account;
+import com.everis.accounts.dto.AccountResponse;
 import com.everis.accounts.service.AccountsService;
 import io.reactivex.Single;
 import org.springframework.beans.factory.annotation.Autowired;

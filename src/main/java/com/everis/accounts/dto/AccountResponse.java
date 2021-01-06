@@ -1,4 +1,4 @@
-package com.everis.accounts.dao;
+package com.everis.accounts.dto;
 
 import lombok.*;
 

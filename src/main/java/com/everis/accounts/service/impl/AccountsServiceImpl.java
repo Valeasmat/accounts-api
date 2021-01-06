@@ -1,6 +1,6 @@
 package com.everis.accounts.service.impl;
 
-import com.everis.accounts.dao.Account;
+import com.everis.accounts.dto.Account;
 import com.everis.accounts.service.AccountsService;
 import io.reactivex.Single;
 import org.springframework.stereotype.Service;
