@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AccountsServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">accounts$ServiceTest.exec</a> &gt; <a href="index.source.html" class="el_package">com.everis.accounts.service.impl</a> &gt; <span class="el_source">AccountsServiceImpl.java</span></div><h1>AccountsServiceImpl.java</h1><pre class="source lang-java linenums">package com.everis.accounts.service.impl;
+
+import com.everis.accounts.dto.Account;
+import com.everis.accounts.service.AccountsService;
+import io.reactivex.Single;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Service
+<span class="fc" id="L12">public class AccountsServiceImpl implements AccountsService {</span>
+    @Override
+    public Single&lt;Account&gt; getAccount(String cardNumber) {
+<span class="fc" id="L15">        Account account=new Account();</span>
+<span class="fc" id="L16">        account.setAccountNumber(cardNumber+&quot;XXX&quot;);</span>
+<span class="fc" id="L17">        Map&lt;Character,Long&gt; map=new HashMap&lt;&gt;();</span>
+<span class="fc" id="L18">        map.put('1',1000L);</span>
+<span class="fc" id="L19">        map.put('2',500L);</span>
+<span class="fc" id="L20">        map.put('3',1500L);</span>
+<span class="fc" id="L21">        map.put('4',1200L);</span>
+<span class="fc" id="L22">        map.put('5',1600L);</span>
+<span class="fc" id="L23">        map.put('6',1700L);</span>
+
+<span class="fc" id="L25">        account.setAmount(map.get(cardNumber.charAt(15)));</span>
+<span class="fc" id="L26">        return Single.just(account);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
